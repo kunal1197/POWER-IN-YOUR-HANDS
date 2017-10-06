@@ -115,11 +115,17 @@
 				}
 
 				.front {
-					background-color: yellow;
 					background-size: 100px 100px;
 					background-position: 100px 150px;
 					z-index: 2;
-					background: #FFB280;
+					background: #FFB2B2;
+					opacity: 0.7;
+				}
+
+				.front:hover {
+
+					opacity: 1;
+
 				}
 
 				.back {
@@ -128,10 +134,9 @@
 					-moz-transform: rotateY(180deg);
 					-o-transform: rotateY(180deg);
 					transform: rotateY(180deg);
-
-					background: #D68552;
+					background: #FFB2B2;
+					opacity: 0.7;
 				}
-
 
 				.back-logo {
 					position: absolute;
@@ -213,7 +218,7 @@
 
   </head>
 
-  <body id="page-top" style="background-color: #BFFFBF;">>
+  <body id="page-top" style="background-image: url('https://wallpapertag.com/wallpaper/full/c/2/8/197864-best-geometric-backgrounds-1920x1080.jpg');">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: #FFFFD9;">
@@ -241,7 +246,7 @@
               <a class="nav-link js-scroll-trigger" href="waste.php"><span class="nav-text">Sewage</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Jobs</span></a>
+              <a class="nav-link js-scroll-trigger" href="job.php"><span class="nav-text">Jobs</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="sell.php"><span class="nav-text">Sell Crop</span></a>
@@ -273,11 +278,11 @@
     </nav>
 
     <div style="margin-top: 80px;">
-			<div class="row">
-				<div class="flip-container" ontouchstart="this.classList.toggle('hover');" style="margin: 0 auto;">
+			<div class="row" style="margin-left: 200px;">
+				<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
 					<div class="flipper">
 						<div class="front">
-							<img src="https://cdn4.iconfinder.com/data/icons/social-icons-6/40/phone-512.png" width="40%" style="margin-left: 28%; margin-top: 45%;">
+							<img src="https://lh3.googleusercontent.com/F32e_7t5gSWUe32nL3N8LdSTmjt5Iwi_VMlS1JksNvUoFGUHmUba7CCWjSYMOwM1eEY=w300" width="40%" style="margin-left: 28%; margin-top: 45%;">
 						</div>
 						<div class="back">
 							<div class="back-logo"></div>
@@ -286,10 +291,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="flip-container" ontouchstart="this.classList.toggle('hover');" style="margin: 0 auto;">
+				<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
 					<div class="flipper">
 						<div class="front">
-							<img src="img/email.png" width="40%" style="margin-left: 28%; margin-top: 45%;">
+							<img src="https://s-media-cache-ak0.pinimg.com/originals/98/01/d3/9801d347a80d15a2fb5f7ca1cb9df8f3.png" width="40%" style="margin-left: 28%; margin-top: 45%;">
 						</div>
 						<div class="back">
 							<div class="back-logo"></div>
@@ -298,7 +303,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="flip-container" ontouchstart="this.classList.toggle('hover');" style="margin: 0 auto;">
+				<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
 					<div class="flipper">
 						<div class="front">
 							<img src="img/fb.png" width="40%" style="margin-left: 28%; margin-top: 45%;">
@@ -310,7 +315,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="flip-container" ontouchstart="this.classList.toggle('hover');" style="margin: 0 auto;">
+				<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
 					<div class="flipper">
 						<div class="front">
 							<img src="img/twitter.png" width="40%" style="margin-left: 28%; margin-top: 45%;">
