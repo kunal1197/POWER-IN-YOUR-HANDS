@@ -16,6 +16,20 @@
 
         if($_POST['month']!=1 AND $_POST['date']!='' AND $_POST['type']!=1) {
 
+            $curTime = time();
+            $current = date('Y-m-d',$curTime);
+            $query = "SELECT * FROM `village` WHERE name='Ryakal'";
+            $result = mysqli_query($link, $query);
+            while($row = mysqli_fetch_assoc($result)) {
+                $date = $row['date'];
+                $put = date('Y-m-d',strtotime("+30 day".$date));
+                echo "<script> alert('$put'); </script>";
+                echo "<script> alert('$current'); </script>";
+                if($put > $current) {
+                    $error.="Only 1 request possible per month. Last camp was organized on: ".$row['date'];
+                }
+            }
+
             $array = array(
                 "January" => 31,
                 "February" => 28,
@@ -145,6 +159,7 @@
 
     }
 
+
 ?>
 
 <!DOCTYPE html>
@@ -273,6 +288,11 @@
 
         }
 
+        .arrow {
+
+            width: 50px; 
+
+        }
 
     </style>
 
@@ -340,7 +360,50 @@
       </div>
     </nav>
 
-    <div style="margin-top: 70px;">
+    <div style="margin-top: 50px;">
+
+        <div>
+        <div class="jumbotron" style="
+        background-image: url('http://billionsinchange.in/wp-content/uploads/revslider/health-solution-header/Healthy-Happy-Family.jpg'); height: 700px;
+        color: white;">
+        <div style="margin-left: 80%;">
+        <h1>Welcome Wellness</h1>
+        <p style="font-size: 120%;">Meeting basic needs is the most effective and efficient<br> way to prevent disease and enable wellness.</p>
+        <a href="#request"><img src="https://di-uploads-pod2.s3.amazonaws.com/grapponeautogroup/uploads/2015/03/down-arrow-white.png" class="arrow"></a>
+        </div>
+        </div>
+        <img src="http://billionsinchange.in/wp-content/uploads/2017/09/loren-joseph-286131v2.jpg" style="float: left; margin-left: 30px; margin-right: 20px;" height="400px">
+        <div>
+        <h1>WHY THIS MATTERS</h1>
+        <p>The conventional approach to healthcare is inadequate because it tends to focus on treating people who are already sick. A more effective approach would be to focus on keeping people from getting sick in the first place. That requires an understanding of both the root causes of disease and the fundamental sources of wellness. </p>
+        <p>When people lack basic needs like clean water, electricity, and nutritious food, the result is poor health. Poor health hinders the ability to work, earn a living, care for a family, get an education, and experience good quality of life. Further, treatment costs for certain health conditions can be financially crushing. When an entire region lacks basic needs, the result is poor healthcare. Poor healthcare means diseases aren’t cured, illnesses aren’t treated, and medical services aren’t effectively performed. The combination of poor health and poor healthcare is lethal. Therefore, ensuring that basic needs are met is one of the most important health initiatives in the world today.</p>
+        </div>
+        <br><br><br><br>
+        <div class="jumbotron" style="text-align: center;">
+        <p style="font-size: 300%; color: #F12A2A;">Inventing for Good Health</p>
+        <img src="http://billionsinchange.in/wp-content/uploads/2016/06/health.png" style="margin-bottom: 20px;">
+        <p>Meeting basic needs is the most effective and efficient way to prevent disease and enable wellness.</p>
+        </div>
+        <!--IMAGE-->
+        <div class="text1" style="margin:10px 200px 0px 200px;text-align: justify;
+                     background-color: rgba(210,210,210,0.5);">
+        <h1>CLEAN WATER IS HEALTH</h1><br>
+        <h2>RainMaker: Preventing Disease, Enabling Wellness</h2><br>
+        <p>Nearly 1.5 million people, mostly children, die from waterborne diseases each year, and half the world’s hospital beds are occupied by people sick from bad water. Additionally, hundreds of millions of people suffer debilitating illnesses because of unsafe water. Providing people access to clean water for drinking and sanitation could reduce incidences of serious diseases, including (with estimated annual cases globally) cholera (3-5 million cases), giardia (280 million cases), amoebic dysentery (480 million cases), Hepatitis A (114 million cases), and Typhoid fever (12.5 million). Our RainMaker devices are designed with disease prevention and wellness in mind. They’re made for use at the village level and can purify any type of contaminated water at a rate of 5-10 gallons per minute.</p>
+        <h1>ELECTRICITY ENABLES HEALTHCARE</h1>
+        <h2>Free Electric: Empowering Health Clinics</h2><br>
+        <p>Health clinics all over the world operate without electricity, leaving an estimated 1 billion people unable to receive adequate medical treatment. In India alone, 46 percent of healthcare facilities lack power. That means doctors seeing patients at night have to do so in the dark, or with only the dim light of a kerosene lantern. When vaccines and medicines cannot be refrigerated, they can spoil and go to waste. When medical supplies and instruments cannot be stored in a sterile environment and at constant temperature, the risk of infection increases. For newborns to the elderly, the absence of electricity prevents the use of important diagnostic tools as well as the administration of potentially lifesaving cures. Our HANS™ devices are helping to solve some of the problems facing health clinics that lack power, enabling them to provide critical health services to rural populations.</p>
+        <!--Image--> <!--Image-->
+        <h1>YOU ARE WHAT YOUR FOOD EATS</h1><br>
+        <h2>Shivansh Farming: Supporting Healthy Families</h2><br>
+        <p>The use of chemical fertilizers like urea has resulted in a domino effect of negative outcomes for farmers, one of which is poor health: urea destroys the microscopic soil organisms responsible for releasing nutrients to plants; plants with nutrient deficiencies produce fruits with lower levels of essential vitamins and minerals; people who eat vitamin-deficient foods are less likely to thrive, are more likely to develop compromised immune systems, and are more prone to illness. Our Shivansh Farming method is addressing the root cause (literally) of this health crisis. Farmers who have implemented the Shivansh Fertilizer have noticed that because they’re producing higher quality food, their kids are visibly healthier and household medical expenditures have gone down. With better health and lower costs come opportunity for further improving livelihoods. The Shivansh Farming method essentially reversed the domino effect of negative outcomes, into a chain reaction of benefits.</p>
+        <h1>STOP DISEASE BEFORE IT STARTS</h1><br>
+        <h2>Renew ECP: Improving Circulation for Better Health</h2><br>
+        <p>Good blood circulation is the cornerstone of good health. Blood delivers nutrients and oxygen and removes waste from cells. When blood flows freely and efficiently, the body is able to defend itself against disease. But poor circulation flow can result in serious health problems like heart disease, diabetes, stroke, high blood pressure, dementia, and cancer. Renew ECP is a blood flow enhancement apparatus developed by Stage 2 that uses external counterpulsation (ECP) to squeeze blood from the lower body into the core while the heart is at rest. It acts like an auxiliary heart pumping blood between heartbeats. This action increases circulation while reducing the heart’s workload. The enhanced circulation widens blood vessels causing more blood to reach all areas of the body. Renew ECP is FDA-approved for increased blood flow for both heart patients and healthy individuals.</p>
+        <!--Image-->
+        </div>
+
+    </div>
 
       <iframe src="https://www.google.com/maps/d/u/0/embed?mid=18rzuIbLhq8pcn8EWwHAWKQUoic8" id="iframe"></iframe>
       <div id="request">
@@ -378,7 +441,7 @@
           <button type="submit" class="bttn-unite bttn-primary bttn-sm" name="submit">SUBMIT</button>
           <br><br>
         </form>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert" <?php if($error=='') { echo "style='display: none;"; } ?>>
+        <div class="alert alert-danger alert-dismissible fade show" id="message" role="alert"<?php if($error=='') { echo "style='display: none;"; } ?>>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -386,6 +449,7 @@
         </div>
       </div>
     </div>
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
