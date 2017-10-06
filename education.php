@@ -4,10 +4,6 @@
 
 	$link = mysqli_connect("shareddb1c.hosting.stackcp.net","power-in-hand-313640b8","password98@","power-in-hand-313640b8");
 
-  $profession = $_SESSION['prof'];
-
-  echo "<script> alert($profession); </script>";
-
     if(isset($_POST['submit'])) {
 
     if($_POST['vname']!='' AND $_POST['subject']!='select' AND $_POST['type']!='select') {
@@ -20,10 +16,15 @@
 
         } else {
           
-          $row = mysqli_fetch_array(mysqli_query($link, $query));
+            $row = mysqli_fetch_array(mysqli_query($link, $query));
 
-            $query = "INSERT INTO `teach`(`vname`, `subject`, `type`) VALUES('".mysqli_real_escape_string($link, $row['name'])."'
-            , '".mysqli_real_escape_string($link, $_POST['subject'])."', '".mysqli_real_escape_string($link, $_POST['type'])."')";
+            $query1 = "SELECT * FROM `sign_village` WHERE mobile='".mysqli_real_escape_string($link, $_SESSION['mobile'])."'";
+
+            $row1 = mysqli_fetch_array(mysqli_query($link, $query));
+
+            $query = "INSERT INTO `teach`(`vname`, `subject`, `type`, `cemail`) VALUES('".mysqli_real_escape_string($link, $row['name'])."'
+            , '".mysqli_real_escape_string($link, $_POST['subject'])."', '".mysqli_real_escape_string($link, $_POST['type'])."',
+            '".mysqli_real_escape_string($link, $row1['email'])."')";
 
             mysqli_query($link, $query);
 
@@ -39,7 +40,37 @@
 
   } 
   
+  $success="";
 
+  if(isset($_POST['interest'])) {
+
+      $query = "SELECT * FROM `sign_teacher` WHERE mobile='".$_SESSION['mobile']."'";
+
+      $row = mysqli_fetch_array(mysqli_query($link, $query));
+
+      $query1 = "SELECT * FROM `teach` WHERE id='".mysqli_real_escape_string($link, $_POST['interest'])."'";
+
+      $row1 = mysqli_fetch_array(mysqli_query($link, $query1));
+
+      echo "<script> alert('".$row1['cemail']."'); </script>";
+
+      $to = $row1['cemail'];
+      $subject = "Interest shown in ad";
+      $message = '
+      A teacher has shown interest in your ad:
+      
+      Name: '.$row['name'].'
+      Mobile: '.$row['mobile'].'
+      Email: '.$row['email'].'
+      
+      This is a system generated mail. Do not reply. 
+      ';
+      $headers = 'From:noreply@powerinhand.com' . "\r\n"; 
+      mail($to, $subject, $message, $headers); 
+
+      $success = "Email sent! The person will get back to you shortly.";
+
+  }
  
 
 ?>
@@ -54,7 +85,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>village</title>
+    <title>EDUCATION</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -130,6 +161,24 @@
 
         }
 
+        .ads {
+
+            height: 300px;
+            width: 300px;
+            font-size: 120%;
+            background-color: #FFE6B2;
+            opacity: 0.7;
+
+        }
+
+        .ads:hover {
+
+            font-size: 150%;
+            box-shadow: 10px 10px 5px #888888;
+            opacity: 1;
+
+        }
+
     </style>
 
     <!--bttn.css-->
@@ -137,7 +186,7 @@
 
   </head>
 
-  <body id="page-top">
+  <body id="page-top" style="background-image: url('http://blog.hdwallsource.com/wp-content/uploads/2014/11/gradients-26042-26727-hd-wallpapers.jpg')">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: #FFFFD9;">
@@ -228,24 +277,37 @@
       } else if($_SESSION['prof']==1) {
 
         $query = "SELECT * FROM `teach`";
+
+  ?>
+        <div class="alert alert-success fonte" role="alert" <?php if($success=='') { echo "style='display: none'"; } ?>>
+  <?php
+        echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
+        echo '<span aria-hidden="true">&times;</span>';
+        echo '</button>';
+        echo $success;
+        echo '</div>';
         
         if($result = mysqli_query($link, $query)) {
 
+            echo "<form method='post'>";
             echo "<div class='row'>";
 
             while($row = mysqli_fetch_array($result)) {
 
-                echo '<div class="card">';
-                echo '<div class="card-body">';
-                echo $row['vname']."<br>";
-                echo $row['subject']."<br>";
-                echo $row['type']."<br>";
+                echo '<div class="card ads" style="margin: 0 auto;">';
+                echo '<div class="card-body" style="text-align: center;">';
+                echo "<strong>Village</strong>:".$row['vname']."<br><br>";
+                echo "<strong>Subject</strong>:".$row['subject']."<br><br>";
+                echo "<strong>Type</strong>:".$row['type']."<br><br>";
+                $id = $row['id'];
+                echo "<button name='interest' value='$id' class='bttn-stretch bttn-md bttn-primary'>INTERESTED</button>";
                 echo "</div>";
                 echo "</div>";
               
             }
 
             echo "</div>";
+            echo "</form>";
 
         }
         
@@ -254,10 +316,6 @@
 
     ?>
 
-      
-      
-        
-      
 	</form>
   </div>
 
