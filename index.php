@@ -544,7 +544,7 @@
           <form method="post">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#"><span class="nav-text">Health</span></a>
+              <a class="nav-link js-scroll-trigger" href="health.php"><span class="nav-text">Health</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#services"><span class="nav-text">Education</span></a>
@@ -571,7 +571,7 @@
               <a class="nav-link js-scroll-trigger" href="#"><span class="nav-text">Donate</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#"><span class="nav-text">Contact</span></a>
+              <a class="nav-link js-scroll-trigger" href="contact.php"><span class="nav-text">Contact</span></a>
             </li>
             <li class="nav-item">
               <?php
