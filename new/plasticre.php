@@ -1,3 +1,21 @@
+<?php
+
+  session_start();
+
+    if(isset($_POST['logout'])) {
+
+        $_SESSION['name'] = '';
+
+        $_SESSION['vid'] = '';
+
+        $_SESSION['mobile'] = '';
+
+        echo "<script> location.href='index.php' </script>";
+
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +71,7 @@
             font-size:15px;
              border: 1px solid transparent;
             border-radius:0px;
-            color: white;
+            color: black;
             padding: 15px 32px;
             text-align: center;
             text-decoration: none;
@@ -68,7 +86,7 @@
 
 #x1:hover {
     background-color: #FF3D0A; /* Green */
-    color: white;
+    color: black;
 }
 
         #x2 {
@@ -77,7 +95,7 @@
             font-size:15px;
              border: 1px solid transparent;
             border-radius:0px;
-            color: white;
+            color: black;
             padding: 15px 32px;
             text-align: center;
             text-decoration: none;
@@ -90,7 +108,7 @@
 
         #x2:hover {
         background-color: #FF3D0A; /* Green */
-         color: white;
+         color: black;
            }
              #donate {
                                         
@@ -137,6 +155,37 @@
                     margin:80px 250px 50px 150px;
                     background-color: rgba(208,208,208,0.6);
                 }
+
+                .logout {
+
+            border: none;
+            background-color: Transparent;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7); 
+            margin-top: 7px;
+
+        }
+
+        .logout:hover {
+
+            color: white;
+            font-size: 90%;
+
+        }
+
+        @media screen and (max-width: 480px)
+        {
+
+            .logout {
+
+                color: #222222;
+                margin-left: -4px;
+
+            }
+
+        }
            
 
 
@@ -152,48 +201,61 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: #FFFFD9;">
       <div class="container heading_container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top"><span style="color: #FF9900;">Power in your hands</span></a>
+        <a class="navbar-brand js-scroll-trigger" href="index1.php"><span style="color: #FF9900;">Power in your hands</span></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
+        <form method="post">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about"><span class="nav-text">Health</a>
+              <a class="nav-link js-scroll-trigger" href="health.php"><span class="nav-text">Health</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services"><span class="nav-text">Education</span></a>
+              <a class="nav-link js-scroll-trigger" href="education.php"><span class="nav-text">Education</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio"><span class="nav-text">Agriculture</span></a>
+              <a class="nav-link js-scroll-trigger" href="agri.php"><span class="nav-text">Agriculture</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Power</span></a>
+              <a class="nav-link js-scroll-trigger" href="power.php"><span class="nav-text">Power</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Sewage</span></a>
+              <a class="nav-link js-scroll-trigger" href="waste.php"><span class="nav-text">Waste</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Jobs</span></a>
+              <a class="nav-link js-scroll-trigger" href="job.php"><span class="nav-text">Jobs</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Sell Crop</span></a>
+              <a class="nav-link js-scroll-trigger" href="sell.php"><span class="nav-text">Sell Crop</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Buy Crop</span></a>
+              <a class="nav-link js-scroll-trigger" href="buy.php"><span class="nav-text">Buy Crop</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Donate</span></a>
+              <a class="nav-link js-scroll-trigger" href="donate.php"><span class="nav-text">Donate</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Contact</span></a>
+              <a class="nav-link js-scroll-trigger" href="contact.php"><span class="nav-text">Contact</span></a>
             </li>
+            <li class="nav-item">
+              <?php
+
+                  if(!empty($_SESSION['name']) OR !empty($_SESSION['vid'])) {
+
+                      echo "<form method='post'><button class='logout' name='logout'><span class='nav-text'>LOG OUT</span></button></form>";
+
+                  }
+
+              ?>
+          </li>
           </ul>
+          </form>
         </div>
       </div>
     </nav>
 <div class="mar">
-    <div style="margin:80px 150px 50px 150px ;text-align: justify";>
+    <div style="margin:80px 150px 25px 150px ;text-align: justify";>
 <h1 style="text-align:center;text-shadow: 2px 2px green;">PLASTIC RECYCLING</h1><br>
 <span class="fluid_image" style="display:block;background:url(https://d1x0je2yh2wyb8.cloudfront.net/9/2/4d7f9bb0-1934-4113-81fb-37c01661b3dc.WyI4OTJ4NDUwIiwiY3JvcCJd.jpg) no-repeat 50% 50%; width:100%; max-width:550px; height:225px; margin-top:20px;"></span><br>
 <!--Image-->
@@ -213,7 +275,7 @@
 </div>
 <!--Image-->
 <div class="t2";>
-<h2>Kibera, Kenya</h2>
+<h2>Kibera, Kenya</h2><br>
 <p>A scheme currently running in Kibera ‘Sustainable Management of Plastic Waste’</p>
 <p>In addition, around 4,000 plastic bags are produced every month in Kenya which are less than 15 microns in thickness. </p>
 <p>Each day, hundreds of plastic bags can be seen blowing across the slum, clogging up doorways and pit latrines, but these are now being turned into a thriving business through communities hard work.</p>
@@ -225,7 +287,8 @@
 <p>Through training sessions held by Practical Action, community members have now been trained on business development and also how to use the new technology in the form of the washing machines</p>
 <p>At its launch, community members and stakeholders showed products made from the recycling scheme to show to others how waste could be recycling into improving livelihoods and therefore sustain a better quality of life. Acting as a blue print for other communities, the group hopes this will show how utilising the excessive surplus of waste plastic and contribute to sustainable development, help to alleviate poverty and environmental degradation.</p>
     <p>These simple, yet effective projects show how working directly with communities and using what they have around them can have positive impacts on people’s lives. Taking these small steps can have major benefits for people and their families both now and in the future; it also proves E F Schumacher’s belief that ‘small is beautiful’.</p>
-   
+    <button href="donate" id="donate" style="vertical-align:middle"><span>DONATE </span></button>
+      
     </div>
     </div>
     </div>
@@ -264,6 +327,9 @@
          $("#x2").click(function(){
             $("#x1").css("background-color","#BDE0FF");
         });
+        $("#donate").click(function(){
+             location.href="donate.php";
+         });
          
         
          
