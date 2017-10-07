@@ -2,11 +2,15 @@
 
     session_start();
 
-    if(!isset($_SESSION['name']) AND empty($_SESSION['name']) AND !isset($_SESSION['vid']) AND empty($_SESSION['vid'])) {
+    if(isset($_POST['logout'])) {
 
-        echo "<script> alert('Login or signup first'); </script>";
+        $_SESSION['name'] = '';
 
-        echo "<script> location.href='index.php'; </script>";
+        $_SESSION['vid'] = '';
+
+        $_SESSION['mobile'] = '';
+
+        echo "<script> location.href='index1.php' </script>";
 
     }
 
@@ -109,7 +113,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: #FFFFD9;">
       <div class="container heading_container">
-        <a class="navbar-brand js-scroll-trigger" href="index.php"><span style="color: #FF9900;">Power in your hands</span></a>
+        <a class="navbar-brand js-scroll-trigger" href="index1.php"><span style="color: #FF9900;">Power in your hands</span></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -120,16 +124,16 @@
               <a class="nav-link js-scroll-trigger" href="health.php"><span class="nav-text">Health</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services"><span class="nav-text">Education</span></a>
+              <a class="nav-link js-scroll-trigger" href="education.php"><span class="nav-text">Education</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="agri.php"><span class="nav-text">Agriculture</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Power</span></a>
+              <a class="nav-link js-scroll-trigger" href="power.php"><span class="nav-text">Power</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#"><span class="nav-text">Sewage</span></a>
+              <a class="nav-link js-scroll-trigger" href="#"><span class="nav-text">Waste</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="job.php"><span class="nav-text">Jobs</span></a>
@@ -163,7 +167,7 @@
       </div>
     </nav>
 
-    <div id="mar" style="margin:100px 200px 0px 200px";>
+    <div id="mar" style="margin:100px 200px 25px 200px";>
 
       <h1 style="text-align:center;text-shadow: 2px 2px green;">WASTE MANAGEMENT</h1><br>
       <span class="fluid_image" style="display:block;background:url(https://d1x0je2yh2wyb8.cloudfront.net/1/9/4d7f9cd4-0040-4164-a747-37c01661b3dc.WyI2NTV4MzAwIiwiY3JvcCJd.jpg) no-repeat 50% 50%; width:100%; max-width:500px; height:225px"></span>
@@ -173,24 +177,24 @@
       <span class="fluid_image" style="display:block;background:url(https://d1x0je2yh2wyb8.cloudfront.net/1/6/4d832d9f-a6e4-4081-aef3-05b21661b3dc.WyI5MHg5MCIsImNyb3AiXQ.jpg) no-repeat 50% 50%; width:100%; max-width:90px; height:90px;float:left";></span>
       <h3 style="margin-left:125px";>Improved toilets</h3> <!--Give link to new page improved -->
       <p style="margin-left:125px";>Some of the world’s poorest people are those who live in slums, Practical Action is working to install effective sanitation in these areas</p>
-      <p style="margin-left:900px";><a href="http://powerinhand-com.stackstaging.com/itoilet.php">read more</a> </p>
+      <p style="margin-left:850px";><a href="http://powerinhand-com.stackstaging.com/itoilet.php">read more</a> </p>
       <span class="fluid_image" style="display:block;background:url(https://d1x0je2yh2wyb8.cloudfront.net/1/5/4d7f9bf1-9980-4f9e-a3d4-37bc1661b3dc.WyI5MHg5MCIsImNyb3AiXQ.jpg) no-repeat 50% 50%; width:100%; max-width:90px; height:90px;float:left"></span> <!--Give link to new page improved -->
       <h3 style="margin-left:125px";>Solid waste management</h3><!--Give link to new page-->
       <p style="margin-left:125px";>Waste collectors recycle and sell material thrown away by others, thus contributing to the improved health of slum dwelling families</p>
-        <p style="margin-left:900px";><a href="http://powerinhand-com.stackstaging.com/solidwaste.php">read more</a></p>  <!--Give link to new page improved -->
+        <p style="margin-left:850px";><a href="http://powerinhand-com.stackstaging.com/solidwaste.php">read more</a></p>  <!--Give link to new page improved -->
         <span class="fluid_image" style="display:block;background:url(https://d1x0je2yh2wyb8.cloudfront.net/1/9/4d7f9cd4-0040-4164-a747-37c01661b3dc.WyI5MHg5MCIsImNyb3AiXQ.jpg) no-repeat 50% 50%; width:100%; max-width:90px; height:90px;float:left"></span>
     <h3 style="margin-left:125px";>Urban waste management</h3> <!--Give link to new page improved -->
     <p style="margin-left:125px";>Waste management brings improvements to the health of the slum dwelling families with the creation of safer healthier places to live and work.</p>
-     <p style="margin-left:900px";><a href="http://powerinhand-com.stackstaging.com/urban.php">read more</a></p>  <!--Give link to new page improved -->
+     <p style="margin-left:850px";><a href="http://powerinhand-com.stackstaging.com/urban.php">read more</a></p>  <!--Give link to new page improved -->
      <span class="fluid_image" style="display:block;background:url(https://d1x0je2yh2wyb8.cloudfront.net/1/5/4d7f9bf1-9980-4f9e-a3d4-37bc1661b3dc.WyI5MHg5MCIsImNyb3AiXQ.jpg) no-repeat 50% 50%; width:100%; max-width:90px; height:90px;float:left"></span>
      <h3 style="margin-left:125px";>Home composting</h3> <!--Give link to new page improved -->
      <p style="margin-left:125px";>Introducing home composting bins to poor families in order to turn generated waste into useful rich compost for vegetable gardens.</p>
-     <p style="margin-left:900px";><a href="http://powerinhand-com.stackstaging.com/home.php">read more</a></p>  <!--Give link to new page improved -->
+     <p style="margin-left:850px";><a href="http://powerinhand-com.stackstaging.com/home.php">read more</a></p>  <!--Give link to new page improved -->
      
      <span class="fluid_image" style="display:block;background:url(https://d1x0je2yh2wyb8.cloudfront.net/9/2/4d7f9bb0-1934-4113-81fb-37c01661b3dc.WyI5MHg5MCIsImNyb3AiXQ.jpg) no-repeat 50% 50%; width:100%; max-width:90px; height:90px;float:left"></span>
      <h3 style="margin-left:125px";>Plastics recycling</h3> <!--Give link to new page improved -->
      <p style="margin-left:125px";>Waste plastics are washed in specially designed machines before being sold on for commercial recycling and pelletising.</p>
-     <p style="margin-left:900px";><a href="http://powerinhand-com.stackstaging.com/plasticre.php">read more</a></p>  <!--Give link to new page improved -->
+     <p style="margin-left:850px";><a href="http://powerinhand-com.stackstaging.com/plasticre.php">read more</a></p>  <!--Give link to new page improved -->
 
 
     </div>
