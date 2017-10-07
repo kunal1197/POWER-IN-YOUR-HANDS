@@ -2,6 +2,14 @@
 
   session_start();
 
+  if(!isset($_SESSION['name']) AND empty($_SESSION['name']) AND !isset($_SESSION['vid']) AND empty($_SESSION['vid'])) {
+
+        echo "<script> alert('Login or signup first'); </script>";
+
+        echo "<script> location.href='index1.php'; </script>";
+
+    }
+
 	$link = mysqli_connect("shareddb1c.hosting.stackcp.net","power-in-hand-313640b8","password98@","power-in-hand-313640b8");
 
     if(isset($_POST['submit'])) {
@@ -51,8 +59,6 @@
       $query1 = "SELECT * FROM `teach` WHERE id='".mysqli_real_escape_string($link, $_POST['interest'])."'";
 
       $row1 = mysqli_fetch_array(mysqli_query($link, $query1));
-
-      echo "<script> alert('".$row1['cemail']."'); </script>";
 
       $to = $row1['cemail'];
       $subject = "Interest shown in ad";
@@ -256,7 +262,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: #FFFFD9;">
       <div class="container heading_container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top"><span style="color: #FF9900;">Power in your hands</span></a>
+        <a class="navbar-brand js-scroll-trigger" href="index.php"><span style="color: #FF9900;">Power in your hands</span></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -264,34 +270,34 @@
           <form method="post">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about"><span class="nav-text">Health</a>
+              <a class="nav-link js-scroll-trigger" href="health.php"><span class="nav-text">Health</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services"><span class="nav-text">Education</span></a>
+              <a class="nav-link js-scroll-trigger" href="education.php"><span class="nav-text">Education</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio"><span class="nav-text">Agriculture</span></a>
+              <a class="nav-link js-scroll-trigger" href="agri.php"><span class="nav-text">Agriculture</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Power</span></a>
+              <a class="nav-link js-scroll-trigger" href="power.php"><span class="nav-text">Power</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Sewage</span></a>
+              <a class="nav-link js-scroll-trigger" href="waste.php"><span class="nav-text">Waste</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Jobs</span></a>
+              <a class="nav-link js-scroll-trigger" href="job.php"><span class="nav-text">Jobs</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Sell Crop</span></a>
+              <a class="nav-link js-scroll-trigger" href="sell.php"><span class="nav-text">Sell Crop</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Buy Crop</span></a>
+              <a class="nav-link js-scroll-trigger" href="buy.php"><span class="nav-text">Buy Crop</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Donate</span></a>
+              <a class="nav-link js-scroll-trigger" href="donate.php"><span class="nav-text">Donate</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Contact</span></a>
+              <a class="nav-link js-scroll-trigger" href="contact.php"><span class="nav-text">Contact</span></a>
             </li>
             <li class="nav-item">
               <?php
@@ -310,7 +316,7 @@
       </div>
     </nav>
 
-      <div style="margin-top: 70px">
+      <div style="margin-top: 70px" id="teacher">
 	<form method="post">
 
     <?php 
