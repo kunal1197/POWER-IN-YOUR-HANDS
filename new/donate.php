@@ -186,7 +186,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: #FFFFD9;">
       <div class="container heading_container">
-        <a class="navbar-brand js-scroll-trigger" href="index.php"><span style="color: #FF9900;">Power in your hands</span></a>
+        <a class="navbar-brand js-scroll-trigger" href="index1.php"><span style="color: #FF9900;">Power in your hands</span></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -197,16 +197,16 @@
               <a class="nav-link js-scroll-trigger" href="health.php"><span class="nav-text">Health</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services"><span class="nav-text">Education</span></a>
+              <a class="nav-link js-scroll-trigger" href="education.php"><span class="nav-text">Education</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="agri.php"><span class="nav-text">Agriculture</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Power</span></a>
+              <a class="nav-link js-scroll-trigger" href="power.php"><span class="nav-text">Power</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="waste.php"><span class="nav-text">Sewage</span></a>
+              <a class="nav-link js-scroll-trigger" href="waste.php"><span class="nav-text">Waste</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="job.php"><span class="nav-text">Jobs</span></a>
@@ -248,7 +248,7 @@
 
     </div>
 
-    <div style="margin-top: 50px;margin-left:35%; text-align: center;">
+    <div style="margin-top: 50px;margin-left:35%; text-align: center;" id="paytm">
     <div class="row">
       <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
@@ -262,7 +262,7 @@
         </div>
       </div>
 
-      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+      <div class="flip-container" ontouchstart="this.classList.toggle('hover');" id="phonepe">
         <div class="flipper">
           <div class="front">
             <img src="img/phonepe.png" width="50%" style="margin-top: 50%;">
