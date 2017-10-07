@@ -1,3 +1,21 @@
+<?php
+
+  session_start();
+  
+  if(isset($_POST['logout'])) {
+
+        $_SESSION['name'] = '';
+
+        $_SESSION['vid'] = '';
+
+        $_SESSION['mobile'] = '';
+
+        echo "<script> location.href='index.php' </script>";
+
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +71,7 @@
             font-size:15px;
              border: 1px solid transparent;
             border-radius:0px;
-            color: white;
+            color: black;
             padding: 15px 32px;
             text-align: center;
             text-decoration: none;
@@ -68,7 +86,7 @@
 
 #x1:hover {
     background-color: #FF3D0A; /* Green */
-    color: white;
+    color: black;
 }
 
         #x2 {
@@ -77,7 +95,7 @@
             font-size:15px;
              border: 1px solid transparent;
             border-radius:0px;
-            color: white;
+            color: black;
             padding: 15px 32px;
             text-align: center;
             text-decoration: none;
@@ -90,7 +108,7 @@
 
         #x2:hover {
         background-color: #FF3D0A; /* Green */
-         color: white;
+         color: black;
            }
              #donate {
                                         
@@ -138,6 +156,25 @@
                      background-color: rgba(210,210,210,0.5);
                 }
 
+                .logout {
+
+            border: none;
+            background-color: Transparent;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7); 
+            margin-top: 7px;
+
+        }
+
+        .logout:hover {
+
+            color: white;
+            font-size: 90%;
+
+        }
+
 
     </style>
 
@@ -151,53 +188,67 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: #FFFFD9;">
       <div class="container heading_container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top"><span style="color: #FF9900;">Power in your hands</span></a>
+        <a class="navbar-brand js-scroll-trigger" href="index1.php"><span style="color: #FF9900;">Power in your hands</span></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
+        <form method="post">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about"><span class="nav-text">Health</a>
+              <a class="nav-link js-scroll-trigger" href="health.php"><span class="nav-text">Health</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services"><span class="nav-text">Education</span></a>
+              <a class="nav-link js-scroll-trigger" href="education.php"><span class="nav-text">Education</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio"><span class="nav-text">Agriculture</span></a>
+              <a class="nav-link js-scroll-trigger" href="agri.php"><span class="nav-text">Agriculture</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Power</span></a>
+              <a class="nav-link js-scroll-trigger" href="power.php"><span class="nav-text">Power</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Sewage</span></a>
+              <a class="nav-link js-scroll-trigger" href="waste.php"><span class="nav-text">Waste</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Jobs</span></a>
+              <a class="nav-link js-scroll-trigger" href="job.php"><span class="nav-text">Jobs</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Sell Crop</span></a>
+              <a class="nav-link js-scroll-trigger" href="sell.php"><span class="nav-text">Sell Crop</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Buy Crop</span></a>
+              <a class="nav-link js-scroll-trigger" href="buy.php"><span class="nav-text">Buy Crop</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Donate</span></a>
+              <a class="nav-link js-scroll-trigger" href="donate.php"><span class="nav-text">Donate</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Contact</span></a>
+              <a class="nav-link js-scroll-trigger" href="contact.php"><span class="nav-text">Contact</span></a>
             </li>
+            <li class="nav-item">
+              <?php
+
+                  if(!empty($_SESSION['name']) OR !empty($_SESSION['vid'])) {
+
+                      echo "<form method='post'><button class='logout' name='logout'><span class='nav-text'>LOG OUT</span></button></form>";
+
+                  }
+
+              ?>
+          </li>
           </ul>
+          </form>
         </div>
       </div>
     </nav>
 
-    <div id="mar" style="margin:80px 100px 50px 100px";>
+    <div id="mar" style="margin:80px 100px 25px 100px";>
 
-      <h1 style="text-align:center">HOME COMPOSTING</h1>
+      <h1 style="text-align:center">HOME COMPOSTING</h1><br>
       <!--Image-->
       <span class="fluid_image" style="display:block;background:url(https://d1x0je2yh2wyb8.cloudfront.net/1/5/4d7f9bf1-9980-4f9e-a3d4-37bc1661b3dc.WyI4OTJ4NDUwIiwiY3JvcCJd.jpg) no-repeat 50% 50%; width:100%; max-width:500px; height:225px"></span>
-      <h2 style="margin-top:10px">Turning waste into useful compost</h2>
+     <br>
+      <h2 style="margin-top:10px">Turning waste into useful compost</h2><br>
       <p style="text-size:15px";>Practical Action recognises the positive benefits of composting for poor families. With better management of waste, households can produce rich compost that can be used on gardens to improve the soil, thereby increasing productivity. This provides poor families with a variety of fresh vegetables to eat, as well as a small income from the surplus vegetables.</p>
       <p style="text-size:15px";>Therefore, Practical Action has introduced home-composting bins into poor neighbourhoods.</p>
       <!--How it works-->
@@ -255,6 +306,9 @@
          $("#x2").click(function(){
             $("#x1").css("background-color","#BDE0FF");
         });
+        $("#donate").click(function(){
+             location.href="donate.php";
+         });
        
            
         </script>
