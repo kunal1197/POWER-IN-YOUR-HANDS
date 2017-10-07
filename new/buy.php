@@ -2,6 +2,14 @@
 
     session_start();
 
+    if(!isset($_SESSION['name']) AND empty($_SESSION['name']) AND !isset($_SESSION['vid']) AND empty($_SESSION['vid'])) {
+
+        echo "<script> alert('Login or signup first'); </script>";
+
+        echo "<script> location.href='index1.php'; </script>";
+
+    }
+
     $link = mysqli_connect("shareddb1c.hosting.stackcp.net","power-in-hand-313640b8","password98@","power-in-hand-313640b8");
 
     if(isset($_POST['logout'])) {
@@ -106,15 +114,23 @@
         .card {
           /*margin: 0 auto;/* /* Added */
           float: none; /* Added */
-          background-color: #FFB280;
+          
+          background-image: url('https://image.shutterstock.com/z/stock-vector-abstract-geometric-blue-graphic-design-triangle-pattern-527682946.jpg');
+          background-repeat: no-repeat;
+          background-size:150% 150%;
           margin: 0px 10px 15px 15px; /* Added */
-          width: 20rem;
+          width: 15rem;
+          height:18rem;
            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+           border-radius:25px 25px 25px 25px;
     transition: 0.3s;
+    opacity:0.5;
 
         }
         .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
+    opacity:1;
+    
 }
 
         .buy {
@@ -161,12 +177,12 @@
 
   </head>
 
-  <body id="page-top" style="background-color: #BFFFBF;">
+  <body id="page-top" style="background-image:url('https://ak1.picdn.net/shutterstock/videos/621241/thumb/1.jpg');background-repeat: no-repeat;background-size: 1366px 768px; opacity:2px;">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: #FFFFD9;">
       <div class="container heading_container">
-        <a class="navbar-brand js-scroll-trigger" href="index.php"><span style="color: #FF9900;">Power in your hands</span></a>
+        <a class="navbar-brand js-scroll-trigger" href="index1.php"><span style="color: #FF9900;">Power in your hands</span></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -177,13 +193,13 @@
               <a class="nav-link js-scroll-trigger" href="health.php"><span class="nav-text">Health</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services"><span class="nav-text">Education</span></a>
+              <a class="nav-link js-scroll-trigger" href="education.php"><span class="nav-text">Education</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="agri.php"><span class="nav-text">Agriculture</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Power</span></a>
+              <a class="nav-link js-scroll-trigger" href="power.php"><span class="nav-text">Power</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="waste.php"><span class="nav-text">Waste</span></a>
@@ -247,7 +263,7 @@
                       $email = $row1['email'];
                       $name = $row1['name'];
                       echo "<button type='submit' name='submit' value='".$email."' class='card' style='text-align: center; float: left;'>";
-                      echo '<img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '" style="margin: 0 auto;" alt="No Image" width="50" height="50"><br><br>';
+                      echo '<img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '" style="margin: 0 auto;" alt="No Image" width="100" height="100"><br><br>';
                       echo "<h5><strong>Seller</strong>: ".mysqli_real_escape_string($link, $name)."</h5>";
                       echo "<h6>".mysqli_real_escape_string($link, $row['name'])."</h6>";
                       echo "<h6><strong>Price</strong>: ".mysqli_real_escape_string($link, $row['price'])."</h6>";
