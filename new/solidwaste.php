@@ -1,3 +1,21 @@
+<?php
+
+		session_start();
+
+		if(isset($_POST['logout'])) {
+
+        $_SESSION['name'] = '';
+
+        $_SESSION['vid'] = '';
+
+        $_SESSION['mobile'] = '';
+
+        echo "<script> location.href='index1.php' </script>";
+
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +71,7 @@
             font-size:15px;
              border: 1px solid transparent;
             border-radius:0px;
-            color: white;
+            color: black;
             padding: 15px 32px;
             text-align: center;
             text-decoration: none;
@@ -68,7 +86,7 @@
 
 #x1:hover {
     background-color: #FF3D0A; /* Green */
-    color: white;
+    color: black;
 }
 
         #x2 {
@@ -77,7 +95,7 @@
             font-size:15px;
              border: 1px solid transparent;
             border-radius:0px;
-            color: white;
+            color: black;
             padding: 15px 32px;
             text-align: center;
             text-decoration: none;
@@ -90,7 +108,7 @@
 
         #x2:hover {
         background-color: #FF3D0A; /* Green */
-         color: white;
+         color: black;
            }
              #donate {
                                         
@@ -138,6 +156,37 @@
                      background-color: rgba(210,210,210,0.5);
                 }
 
+                .logout {
+
+            border: none;
+            background-color: Transparent;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7); 
+            margin-top: 7px;
+
+        }
+
+        .logout:hover {
+
+            color: white;
+            font-size: 90%;
+
+        }
+
+        @media screen and (max-width: 480px)
+        {
+
+            .logout {
+
+                color: #222222;
+                margin-left: -4px;
+
+            }
+
+        }
+
 
     </style>
 
@@ -151,52 +200,65 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: #FFFFD9;">
       <div class="container heading_container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top"><span style="color: #FF9900;">Power in your hands</span></a>
+        <a class="navbar-brand js-scroll-trigger" href="index1.php"><span style="color: #FF9900;">Power in your hands</span></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
+        <form method="post">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about"><span class="nav-text">Health</a>
+              <a class="nav-link js-scroll-trigger" href="health.php"><span class="nav-text">Health</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services"><span class="nav-text">Education</span></a>
+              <a class="nav-link js-scroll-trigger" href="education.php"><span class="nav-text">Education</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio"><span class="nav-text">Agriculture</span></a>
+              <a class="nav-link js-scroll-trigger" href="agri.php"><span class="nav-text">Agriculture</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Power</span></a>
+              <a class="nav-link js-scroll-trigger" href="power.php"><span class="nav-text">Power</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Sewage</span></a>
+              <a class="nav-link js-scroll-trigger" href="waste.php"><span class="nav-text">Waste</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Jobs</span></a>
+              <a class="nav-link js-scroll-trigger" href="job.php"><span class="nav-text">Jobs</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Sell Crop</span></a>
+              <a class="nav-link js-scroll-trigger" href="sell.php"><span class="nav-text">Sell Crop</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Buy Crop</span></a>
+              <a class="nav-link js-scroll-trigger" href="buy.php"><span class="nav-text">Buy Crop</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Donate</span></a>
+              <a class="nav-link js-scroll-trigger" href="donate.php"><span class="nav-text">Donate</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Contact</span></a>
+              <a class="nav-link js-scroll-trigger" href="contact.php"><span class="nav-text">Contact</span></a>
             </li>
+            <li class="nav-item">
+              <?php
+
+                  if(!empty($_SESSION['name']) OR !empty($_SESSION['vid'])) {
+
+                      echo "<form method='post'><button class='logout' name='logout'><span class='nav-text'>LOG OUT</span></button></form>";
+
+                  }
+
+              ?>
+          </li>
           </ul>
+          </form>
         </div>
       </div>
     </nav>
 
-    <div id="mar" style="margin:100px 200px 0px 200px";>
+    <div id="mar" style="margin:100px 200px 25px 200px";>
         <!--Image-->
-        <h1 style="text-align:center;text-shadow: 2px 2px green;margin-bottom:20px;">SOLID WASTE</h1>
-<span class="fluid_image" style="display:block;background:url(https://d1x0je2yh2wyb8.cloudfront.net/5/9/4d7f98db-eabc-44f9-9ee5-37bc1661b3dc.WyI4OTJ4NDUwIiwiY3JvcCJd.jpg) no-repeat 25% 25%; width:100%; max-width:600px; height:250px"></span>     
-      <h1 style="margin-top:10px">Waste collecting</h1>
+        <h1 style="text-align:center;text-shadow: 2px 2px green;margin-bottom:20px;">SOLID WASTE</h1><br>
+<span class="fluid_image" style="display:block;background:url(https://d1x0je2yh2wyb8.cloudfront.net/5/9/4d7f98db-eabc-44f9-9ee5-37bc1661b3dc.WyI4OTJ4NDUwIiwiY3JvcCJd.jpg) no-repeat 25% 25%; width:100%; max-width:600px; height:250px"></span> <br>    
+      <h1 style="margin-top:10px">Waste collecting</h1><br>
       <p style="text-size:15px";>Waste is a universal and highly visible phenomenon. The perspectives towards solid waste are often contradictory: While by affluent societies it is often considered plainly as garbage or an environmental problem, in many cities in Africa and other developing countries it is an important and flexible source of income for the large part of urban population and provides raw material to many sectors of economy. Waste collectors form a vital part of the economy in nearly every city of the developing world.</p>
       <p style="text-size:15px";>Operating on the streets, curb-sides and dumps, this group of people collect, sort, clean, recycle and sell material thrown away by others, therefore contributing to public health, sanitation and environmental sustainability. According to estimates, “about 1 per cent of the urban population – at least 15 million people – survive by salvaging recyclables from waste”, in the developing world.</p>
       <p style="text-size:15px";>Practical Action are working with some of the poorest communities to safely and securely improve their waste management and collection methods. This brings improvements to the health of the slum dwelling families and the creation of safer healthier places to live and work.</p>
@@ -214,7 +276,7 @@
       </div>
       <!--Impact -->
       <div class="t2">
-      <h2>Tulasa Gyawali from Syauli Baazar, Nepal</h2>
+      <h2>Tulasa Gyawali from Syauli Baazar, Nepal</h2><br>
       <p>Tulasa Gyawali from Syauli Baazar, 10 Bharatpur, won first prize in a national innovation fair and was asked to share her story in an international symposium for her continuous effort on utilising waste in urban agriculture.</p>
       <p>“I was honoured when I received the first prize. In my house, I have a compost bin and pits and I practice vermin composting too. I do not throw decomposable waste; instead I convert them to resources and use them to grow organic vegetables, she smiles.” ISWM project in collaboration with Bharatpur Municipality had earlier distributed compost bins in Syauli Baazar. Residents of the community do not throw wastes in the street corner as before. People are making compost from organic waste. They separate plastic in their homes and they sell them to the plastic collectors.</p>
       <p>According to Tulasa, “this is one of the positive changes from the project. Waste management training to the community has changed people’s attitude toward disposing waste. Now we think waste as a resource.”</p>
@@ -252,7 +314,9 @@
          $("#x2").click(function(){
             $("#x1").css("background-color","#BDE0FF");
         });
-         
+         $("#donate").click(function(){
+             location.href="donate.php";
+         });
         
          
 
