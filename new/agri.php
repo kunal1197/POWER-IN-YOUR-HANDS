@@ -10,7 +10,7 @@
 
         $_SESSION['mobile'] = '';
 
-        echo "<script> location.href='index.php' </script>";
+        echo "<script> location.href='index1.php' </script>";
 
     }
 
@@ -288,7 +288,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: #FFFFD9;">
       <div class="container heading_container">
-        <a class="navbar-brand js-scroll-trigger" href="index.php"><span style="color: #FF9900;">Power in your hands</span></a>
+        <a class="navbar-brand js-scroll-trigger" href="index1.php"><span style="color: #FF9900;">Power in your hands</span></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -299,16 +299,16 @@
               <a class="nav-link js-scroll-trigger" href="health.php"><span class="nav-text">Health</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services"><span class="nav-text">Education</span></a>
+              <a class="nav-link js-scroll-trigger" href="education.php"><span class="nav-text">Education</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#"><span class="nav-text">Agriculture</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span class="nav-text">Power</span></a>
+              <a class="nav-link js-scroll-trigger" href="power.php"><span class="nav-text">Power</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="waste.php"><span class="nav-text">Sewage</span></a>
+              <a class="nav-link js-scroll-trigger" href="waste.php"><span class="nav-text">Waste</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="job.php"><span class="nav-text">Jobs</span></a>
@@ -342,8 +342,8 @@
       </div>
     </nav>
     
-    <div class="mar1" style="margin: 0px 250px 0px 100px;">
-    <p class="kaka"id="topic">AGRICULTURE</p>
+    <div class="mar1" id="irrigation" style="margin: 0px 250px 0px 100px;">
+    <p class="kaka" id="topic">AGRICULTURE</p>
         <h1  style="margin-top:100px;text-shadow: 2px 2px green;">IRRIGATION TECHNIQUES </h1>
       <p>Raindrops are like liquid gold to farmers in the poorest countries of the world. Yet when the rains do come - and in many places they come erratically or with decreasing frequency - with no irrigation techniques available, most of that precious moisture is washed away, unused. Land is so dehydrated that they are unable to grow enough produce even to sustain their families, there seems to be no way out.</p>
       <p>Practical Action is working with communities to introduce simple yet effective irrigation systems to combat the issue. So instead of parched, dusty fields, there are life-giving gardens brimming with hearty fruit and vegetables or sturdy columns of maize, year after year.</p>
@@ -486,7 +486,7 @@
         <!--NEXT HEADING AFTER SEE MORE-->
 
          <div  class="mar2" style="margin:50px 250px 100px 100px;">
-        <h1 style="text-shadow: 2px 2px green; margin:80px 250px 100px 100px;">RAINWATER HARVESTING</h1>
+        <h1 style="text-shadow: 2px 2px green; margin:80px 250px 100px 100px;" id="rainwater">RAINWATER HARVESTING</h1>
         <p>Rain water harvesting is one of the most effective methods of water management and water conservation. It is the term used to indicate the collection and storage of rain water used for human, animals and plant needs. It involves collection and storage of rain water at surface or in sub-surface aquifer, before it is lost as surface run off. The augmented resource can be harvested in the time of need.</p>
         
         <h2><button id="x4" class="color2 tabs">How it works</button></h2>
@@ -600,7 +600,7 @@
 
           
         </script>
-      <div class="mar3" style="margin:50px 250px 100px 100px;">
+      <div class="mar3" id="fertilizer" style="margin:50px 250px 100px 100px;">
               <h1 style="text-shadow: 2px 2px green; margin:80px 250px 100px 100px;">FERTILIZER</h1>
 <h1>Plant seed for Change</h1>
 <p>Shivansh fertilizer brings dead soil back to life in one planting season, enabling farmers to reduce costs, increase yields, and make a decent living.</p>
